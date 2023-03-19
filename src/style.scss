@@ -41,4 +41,9 @@ body {
   text-align: center;
   border: 2px solid $blue;
   padding: 20px;
+  user-select: none;
+}
+
+.button:active {
+    background-color: rgba(0, 255, 242, 0.616);
 }
