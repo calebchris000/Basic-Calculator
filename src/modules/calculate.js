@@ -1,12 +1,12 @@
 const math = require("mathjs");
-let item = "";
+let data = "";
 
 const buttonListen = () => {
     document.addEventListener("click", (e) => {
         if (e.target.className === "button" && /[0-9+-/÷×]/g.test(e.target.textContent)) {
             const input = document.getElementById("data");
-            item += e.target.textContent;
-            input.innerHTML = item;
+            data += e.target.textContent;
+            input.innerHTML = data;
         }
     });
 };
@@ -18,7 +18,7 @@ const evaluate = () => {
             const filter = input.textContent.replace(/[÷]/g, "/").replace(/[×]/, '*');
             const result = math.evaluate(filter);
             input.innerHTML = result;
-            item = input.textContent;
+            data = input.textContent;
         }
     });
 };
@@ -27,7 +27,7 @@ const clear = () => {
     document.addEventListener("click", (e) => {
         if (e.target.className === "button" && e.target.textContent === "C") {
             const input = document.getElementById("data");
-            item = "";
+            data = "";
             input.innerHTML = "0";
         }
     });
@@ -37,8 +37,8 @@ const deleteLast = () => {
     document.addEventListener("click", (e) => {
         if (e.target.className === "button" && e.target.textContent === "CE") {
             const input = document.getElementById("data");
-            item = item.slice(0, -1);
-            input.innerHTML = item;
+            data = data.slice(0, -1);
+            input.innerHTML = data;
         }
     });
 };
@@ -48,8 +48,8 @@ const posNeg = () => {
         if (e.target.className === "button"
             && e.target.textContent === "±") {
             const input = document.getElementById("data");
-            item = item[0] === "-" ? item.slice(1) : "-" + item;
-            input.innerHTML = item;
+            data = data[0] === "-" ? data.slice(1) : "-" + data;
+            input.innerHTML = data;
         }
     });
 };
